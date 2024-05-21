@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Check } from "lucide-react";
+import Image from "next/image";
+import { Check, CircleDollarSign } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -10,9 +11,7 @@ import {
   CardDescription,
   CardFooter,
   CardHeader,
-  CardTitle,
 } from "@/components/ui/card";
-
 import { Input } from "@/components/ui/input";
 
 export function Calculator() {
@@ -37,7 +36,7 @@ export function Calculator() {
       setSuggestion("Wrong value");
     } else {
       const valuePercentage = Math.round(
-        (totalValueGold / totalPriceGold) * 100
+        (totalValueGold / totalPriceGold) * 100,
       );
       setValue(valuePercentage);
 
@@ -56,54 +55,104 @@ export function Calculator() {
   };
 
   return (
-    <Card>
-      <CardHeader>
-        <CardDescription>Fill the form to calculate.</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <div className="flex flex-col gap-5">
-          <Input
-            type="number"
-            placeholder="Num of Golden Varients"
-            onChange={(e) => setGVarient(Number(e.target.value))}
-          />
-          <Input
-            type="number"
-            placeholder="Num of Purple Varients"
-            onChange={(e) => setPVarient(Number(e.target.value))}
-          />
-          <Input
-            type="number"
-            placeholder="Num of Gold"
-            onChange={(e) => setGold(Number(e.target.value))}
-          />
-          <Input
-            type="number"
-            placeholder="Num of Credits"
-            onChange={(e) => setCredit(Number(e.target.value))}
-          />
-          <Input
-            type="number"
-            placeholder="Num of Collector's tokens"
-            onChange={(e) => setToken(Number(e.target.value))}
-          />
-          <Input
-            type="number"
-            placeholder="Price in USD"
-            onChange={(e) => setPrice(Number(e.target.value))}
-          />
-        </div>
-        {value !== null && (
-          <div className="mt-5 text-lg font-bold">
-            Value: {value}% {suggestion}
+    <div className="mb-16 grid text-center lg:mb-0 lg:w-full lg:max-w-full lg:px-32">
+      <Card>
+        <CardHeader>
+          <CardDescription>Fill the form to calculate.</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex flex-col gap-5">
+            <div className="flex items-center justify-center gap-4">
+              <Image
+                src="/image/gvarient.webp"
+                width={40}
+                height={40}
+                alt="golden varient"
+                className="object-contain"
+              />
+              <Input
+                type="number"
+                placeholder="Num of Golden Varients"
+                onChange={(e) => setGVarient(Number(e.target.value))}
+              />
+            </div>
+            <div className="flex items-center justify-center gap-4">
+              <Image
+                src="/image/pvarient.webp"
+                width={40}
+                height={40}
+                alt="purple varient"
+                className="object-contain"
+              />
+              <Input
+                type="number"
+                placeholder="Num of Purple Varients"
+                onChange={(e) => setPVarient(Number(e.target.value))}
+              />
+            </div>
+            <div className="flex items-center justify-center gap-4">
+              <Image
+                src="/image/gold.webp"
+                width={40}
+                height={40}
+                alt="gold"
+                className="object-contain"
+              />
+              <Input
+                type="number"
+                placeholder="Num of Gold"
+                onChange={(e) => setGold(Number(e.target.value))}
+              />
+            </div>
+            <div className="flex items-center justify-center gap-4">
+              <Image
+                src="/image/credits.webp"
+                width={40}
+                height={40}
+                alt="credit"
+                className="object-contain"
+              />
+              <Input
+                type="number"
+                placeholder="Num of Credits"
+                onChange={(e) => setCredit(Number(e.target.value))}
+              />
+            </div>
+            <div className="flex items-center justify-center gap-4">
+              <Image
+                src="/image/tokens.webp"
+                width={40}
+                height={40}
+                alt="token"
+                className="object-contain"
+              />
+              <Input
+                type="number"
+                placeholder="Num of Collector's tokens"
+                onChange={(e) => setToken(Number(e.target.value))}
+              />
+            </div>
+            <div className="flex items-center justify-center gap-4">
+              <CircleDollarSign size={40} className="object-contain" />
+              <Input
+                type="number"
+                placeholder="Price in USD"
+                onChange={(e) => setPrice(Number(e.target.value))}
+              />
+            </div>
           </div>
-        )}
-      </CardContent>
-      <CardFooter>
-        <Button className="w-full" onClick={calculateValue} disabled={!price}>
-          <Check className="mr-2 h-4 w-4" /> Value it!
-        </Button>
-      </CardFooter>
-    </Card>
+          {value !== null && (
+            <div className="mt-5 text-lg font-bold">
+              Value: {value}% {suggestion}
+            </div>
+          )}
+        </CardContent>
+        <CardFooter>
+          <Button className="w-full" onClick={calculateValue} disabled={!price}>
+            <Check className="mr-2 h-4 w-4" /> Value it!
+          </Button>
+        </CardFooter>
+      </Card>
+    </div>
   );
 }
