@@ -128,7 +128,7 @@ export function Calculator() {
               />
               <Input
                 type="number"
-                placeholder="Num of Collector's tokens"
+                placeholder="Num of Collector's Tokens"
                 onChange={(e) => setToken(Number(e.target.value))}
               />
             </div>
