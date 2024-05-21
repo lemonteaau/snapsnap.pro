@@ -6,7 +6,7 @@ import { Calculator } from "@/components/calculator";
 export default function Home() {
   return (
     <>
-      <div className="absolute right-6 top-6 z-50 lg:right-10 lg:top-10">
+      <div className="fixed right-6 top-6 z-50 lg:right-10 lg:top-10">
         <ModeToggle />
       </div>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
