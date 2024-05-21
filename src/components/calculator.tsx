@@ -58,8 +58,7 @@ export function Calculator() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Let&apos;s do it</CardTitle>
-        <CardDescription>Choose detail of the bundle.</CardDescription>
+        <CardDescription>Fill the form to calculate.</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="flex flex-col gap-5">
