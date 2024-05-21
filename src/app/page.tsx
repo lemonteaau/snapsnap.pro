@@ -32,7 +32,7 @@ function Header() {
 
 function Footer() {
   return (
-    <footer className="fixed bottom-4 left-0 flex h-10 w-full items-end justify-center gap-3 bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
+    <footer className="fixed bottom-6 left-0 flex h-10 w-full items-end justify-center gap-3 bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:bg-none">
       <p>
         By {"  "}
         <Link href="https://github.com/lemonteaau">lemontea</Link>
