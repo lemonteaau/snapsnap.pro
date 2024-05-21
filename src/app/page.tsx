@@ -22,7 +22,7 @@ function Header() {
         <p className="flex-grow text-center text-xl font-bold">
           Snap Bundle Calculator
         </p>
-        <div className="ml-auto mr-4">
+        <div className="absolute ml-4">
           <ModeToggle />
         </div>
       </div>
