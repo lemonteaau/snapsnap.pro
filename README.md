@@ -2,9 +2,8 @@
 
 Snap Bundle Calculator is a tool for calculating the value of various bundles in Marvel Snap.
 
-## Disclaimer
-
-This tool is not affiliated with, endorsed, sponsored, or specifically approved by Marvel Snap, Second Dinner, or any of their affiliates. All product names, logos, and brands are property of their respective owners. The use of these names, logos, and brands does not imply endorsement.
+## Acknowledgements
+The current calculation logic is based on the video by "漫威Snap-校草" on Bilibili. You can watch the video [here](https://www.bilibili.com/video/BV1K1421d7WB/).
 
 ## Usage
 
@@ -53,10 +52,14 @@ This tool is not affiliated with, endorsed, sponsored, or specifically approved 
 - shadcn/ui
 - Bun
 
+## Disclaimer
+
+This tool is not affiliated with, endorsed, sponsored, or specifically approved by Marvel Snap, Second Dinner, or any of their affiliates. All product names, logos, and brands are property of their respective owners. The use of these names, logos, and brands does not imply endorsement.
+
 ## Contributing
 
 Feel free to open issues and submit pull requests to improve this project.
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](https://github.com/lemonteaau/snap-bundle-calculator/blob/main/LICENSE).
