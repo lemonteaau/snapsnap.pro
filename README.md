@@ -19,6 +19,10 @@ This tool is not affiliated with, endorsed, sponsored, or specifically approved 
 - Calculate the value percentage based on the entered price and provide purchase recommendations.
 - Support for dark mode toggle.
 
+## TODO List
+- Calculation for Spotlight Cache Key
+- Multi-language support (Simplified Chinese and Traditional Chinese)
+
 ## Installation (Locally)
 
 1. Clone the repository:
