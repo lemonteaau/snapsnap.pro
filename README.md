@@ -21,7 +21,7 @@ This tool is not affiliated with, endorsed, sponsored, or specifically approved 
 
 ## TODO List
 - Calculation for Spotlight Cache Key
-- Multi-language support (Simplified Chinese and Traditional Chinese)
+- i18n (more currency & language)
 
 ## Installation (Locally)
 
