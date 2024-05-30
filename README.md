@@ -1,5 +1,7 @@
 # Snap Bundle Calculator
 
+English | [中文](https://github.com/lemonteaau/snap-bundle-calculator/README_zh.md)
+
 Snap Bundle Calculator is a tool for calculating the value of various bundles in Marvel Snap.
 
 <img width="530" alt="image" src="https://github.com/lemonteaau/snap-bundle-calculator/assets/104964583/497c290f-6143-4893-997a-9ebc24bfffbd">
