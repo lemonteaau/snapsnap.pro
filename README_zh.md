@@ -1,4 +1,5 @@
 # Snap礼包计算器
+[English](https://github.com/lemonteaau/snap-bundle-calculator/blob/main/README.md) | 中文
 
 Snap礼包计算器是一款用来计算Marvel Snap礼包价值的Web应用。
 
