@@ -3,7 +3,8 @@
 Snap礼包计算器是一款用来计算Marvel Snap礼包价值的Web应用。
 
 ## 致谢
-当前的计算逻辑是基于[漫威Snap-校草](https://www.bilibili.com/video/BV1K1421d7WB/)的视频提供的。
+
+当前的计算逻辑参考了[漫威Snap-校草](https://www.bilibili.com/video/BV1K1421d7WB/)视频中的内容，在此对视频制作者表示感谢。
 
 ## 使用方法
 
