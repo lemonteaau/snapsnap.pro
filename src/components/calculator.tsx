@@ -20,15 +20,19 @@ export function Calculator() {
   const [gold, setGold] = useState(0);
   const [credit, setCredit] = useState(0);
   const [token, setToken] = useState(0);
+  const [cacheKey, setCacheKey] = useState(0);
   const [price, setPrice] = useState(0);
   const [value, setValue] = useState(0);
   const [suggestion, setSuggestion] = useState("");
 
   const calculateValue = () => {
+    // Calculation unit based on gold.
     const gvarientValue = gvarient * 1200;
     const pvarientValue = pvarient * 700;
+    const cacheKeyValue = cacheKey * 5000;
     const totalGold = gold + (credit / 5) * 4 + (token / 3) * 4;
-    const totalValueGold = gvarientValue + pvarientValue + totalGold;
+    const totalValueGold =
+      gvarientValue + pvarientValue + cacheKeyValue + totalGold;
     const totalPriceGold = price * 100;
 
     if (totalPriceGold === 0) {
@@ -130,6 +134,20 @@ export function Calculator() {
                 type="number"
                 placeholder="Num of Collector's Tokens"
                 onChange={(e) => setToken(Number(e.target.value))}
+              />
+            </div>
+            <div className="flex items-center justify-center gap-4">
+              <Image
+                src="/image/cachekey.webp"
+                width={40}
+                height={40}
+                alt="cache key"
+                className="object-contain"
+              />
+              <Input
+                type="number"
+                placeholder="Num of Cache Keys"
+                onChange={(e) => setCacheKey(Number(e.target.value))}
               />
             </div>
             <div className="flex items-center justify-center gap-4">

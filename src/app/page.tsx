@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Calculator } from "@/components/calculator";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -25,6 +26,13 @@ function Header() {
         <div className="absolute ml-4">
           <ModeToggle />
         </div>
+        <Image
+          src="/image/logo.svg"
+          width={75}
+          height={75}
+          alt="logo of the website"
+          className="absolute right-8"
+        />
       </div>
     </header>
   );
