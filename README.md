@@ -24,7 +24,6 @@ The current calculation logic is based on the video by "漫威Snap-校草" on Bi
 - Support for dark mode toggle.
 
 ## TODO List
-- Calculation for Spotlight Cache Key
 - Calculation for bundles purchased with gold
 - i18n (more currency & language)
 
