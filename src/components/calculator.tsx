@@ -26,7 +26,7 @@ export function Calculator() {
   const [suggestion, setSuggestion] = useState("");
 
   const calculateValue = () => {
-    // Calculation unit based on gold.
+    // Calculate the value of the items based on gold.
     const gvarientValue = gvarient * 1200;
     const pvarientValue = pvarient * 700;
     const cacheKeyValue = cacheKey * 5000;
