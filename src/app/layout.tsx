@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import Favicon from "/public/image/favicon.ico";
+import '../lib/i18n';  // 引入 i18n 配置文件
 
 const inter = Inter({ subsets: ["latin"] });
 

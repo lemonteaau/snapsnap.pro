@@ -1,3 +1,4 @@
+//src/components/mode-toggle.tsx
 "use client";
 
 import * as React from "react";
@@ -10,9 +11,16 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useTranslation } from 'react-i18next';
 
 export function ModeToggle() {
   const { setTheme } = useTheme();
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
+
   return (
     <>
       <DropdownMenu>
@@ -49,9 +57,6 @@ export function ModeToggle() {
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => changeLanguage('zh-CN')}>
             中文
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => changeLanguage('fr')}>
-            Français
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>

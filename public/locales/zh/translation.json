@@ -1,0 +1,25 @@
+{
+    "welcome": "欢迎",
+    "snap_bundle_calculator": "Snap 捆绑礼包计算器",
+    "special_thanks": "特别感谢",
+    "for_calculation_logic": "提供的计算逻辑。",
+    "by": "作者",
+    "fill_form": "填写表单进行计算。",
+    "num_of_golden_varients": "黄金变体的数量",
+    "num_of_purple_varients": "紫色变体的数量",
+    "num_of_gold": "金块数量",
+    "num_of_credits": "蓝点数量",
+    "num_of_tokens": "收藏者代币的数量",
+    "num_of_cache_keys": "焦点钥匙的数量",
+    "price_in_usd": "价格（美元）",
+    "value": "性价比",
+    "value_it": "计算价值",
+    "reset": "重置",
+    "wrong_value": "错误的值",
+    "stfu_and_buy_it": "闭嘴买他妈的!",
+    "buy_it": "性价比可以，买他！",
+    "good_deal": "好的性价比",
+    "normal_deal": "普通性价比",
+    "bad_deal": "就是辣鸡"
+  }
+  
