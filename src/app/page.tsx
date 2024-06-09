@@ -1,35 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { ModeToggle } from "@/components/mode-toggle";
 import { Calculator } from "@/components/calculator";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
-import i18n from "@/lib/i18n";
 
 export default function Home() {
-  const { t, i18n } = useTranslation();
-  const [isLanguageLoaded, setIsLanguageLoaded] = useState(false);
-
-  useEffect(() => {
-    const handleLanguageChange = () => {
-      setIsLanguageLoaded(true);
-    };
-    i18n.on('languageChanged', handleLanguageChange);
-    if (i18n.language) {
-      setIsLanguageLoaded(true);
-    }
-
-    return () => {
-      i18n.off('languageChanged', handleLanguageChange);
-    };
-  }, [i18n]);
-
-  if (!isLanguageLoaded) {
-    return <div>Loading...</div>;
-  }
+  const { t } = useTranslation();
 
   return (
     <div className="h-screen">
