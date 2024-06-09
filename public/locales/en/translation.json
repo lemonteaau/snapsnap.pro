@@ -1,0 +1,25 @@
+{
+    "welcome": "Welcome",
+    "snap_bundle_calculator": "Snap Bundle Calculator",
+    "special_thanks": "Special thanks to",
+    "for_calculation_logic": "for the calculation logic.",
+    "by": "By",
+    "fill_form": "Fill the form to calculate.",
+    "num_of_golden_varients": "Num of Golden Varients",
+    "num_of_purple_varients": "Num of Purple Varients",
+    "num_of_gold": "Num of Gold",
+    "num_of_credits": "Num of Credits",
+    "num_of_tokens": "Num of Collector's Tokens",
+    "num_of_cache_keys": "Num of Cache Keys",
+    "price_in_usd": "Price in USD",
+    "value": "Value",
+    "value_it": "Value it!",
+    "reset": "Reset",
+    "wrong_value": "Wrong value",
+    "stfu_and_buy_it": "STFU and buy it!",
+    "buy_it": "Buy it!",
+    "good_deal": "Good deal",
+    "normal_deal": "Normal deal",
+    "bad_deal": "Bad deal"
+  }
+  
