@@ -4,25 +4,26 @@ on:
   push:
     branches:
       - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up SSH
-      uses: webfactory/ssh-agent@v0.9.0
-      with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.9.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - name: Deploy to VPS
-      run: |
-        ssh -o StrictHostKeyChecking=no root@${{ secrets.VPS_IP }} << 'EOF'
-          cd /var/www/nextjs/snap-bundle-calculator
-          git pull origin main
-          bun i
-          bun next build
-          pm2 restart snap-bundle-calculator || pm2 start npm --name "snap-bundle-calculator" -- start
-        EOF
+      - name: Deploy to VPS
+        run: |
+          ssh -o StrictHostKeyChecking=no root@${{ secrets.VPS_IP }} << 'EOF'
+            cd /var/www/nextjs/snap-bundle-calculator
+            git pull origin main
+            bun i
+            bun next build
+            pm2 restart snap-bundle-calculator || pm2 start npm --name "snap-bundle-calculator" -- start
+          EOF
