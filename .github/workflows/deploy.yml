@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -20,7 +19,7 @@ jobs:
 
     - name: Deploy to VPS
       run: |
-        ssh -o StrictHostKeyChecking=no root@your_vps_ip << 'EOF'
+        ssh -o StrictHostKeyChecking=no root@${{ secrets.VPS_IP }} << 'EOF'
           cd /var/www/nextjs/snap-bundle-calculator
           git pull origin main
           bun i
