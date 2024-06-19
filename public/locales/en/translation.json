@@ -20,5 +20,8 @@
   "buy_it": "Buy it!",
   "good_deal": "Good deal",
   "normal_deal": "Normal deal",
-  "bad_deal": "Bad deal"
+  "bad_deal": "Bad deal",
+  "light_mode": "Light",
+  "dark_mode": "Dark",
+  "system_mode": "System"
 }

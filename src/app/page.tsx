@@ -29,7 +29,7 @@ function Header({ t }: { t: (key: string) => string }) {
           {t("snap_bundle_calculator")}
         </p>
         <div className="absolute ml-4">
-          <ModeToggle />
+          <ModeToggle t={t} />
         </div>
         <Image
           src="/image/logo.svg"
