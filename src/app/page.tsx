@@ -11,8 +11,8 @@ export default function Home() {
   const { t } = useTranslation();
 
   return (
-    <div className="h-screen">
-      <main className="flex flex-col items-center gap-4">
+    <div className="flex min-h-screen flex-col">
+      <main className="flex flex-grow flex-col items-center gap-4">
         <Header t={t} />
         <Calculator />
       </main>
@@ -23,7 +23,7 @@ export default function Home() {
 
 function Header({ t }: { t: (key: string) => string }) {
   return (
-    <header className="w-full max-w-4xl">
+    <header className="w-full max-w-4xl lg:mt-6">
       <div className="flex w-full items-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 py-5 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
         <div className="flex w-full items-center justify-center">
           <Image

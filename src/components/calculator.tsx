@@ -202,7 +202,7 @@ export function Calculator() {
                 type="number"
                 placeholder={t("price")}
                 value={price === 0 ? "" : price}
-                className="max-w-[120px]"
+                className="max-w-[120px] text-center"
                 onChange={(e) => setPrice(Number(e.target.value))}
               />
               <DropdownMenu>
