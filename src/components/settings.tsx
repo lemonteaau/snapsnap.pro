@@ -34,7 +34,7 @@ export function Settings({ t }: { t: (key: string) => string }) {
             <LuMenu />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-8">
+        <DropdownMenuContent className="w-40 rounded-md bg-white p-2 shadow-md">
           <DropdownMenuLabel> {t("settings")} </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
@@ -42,6 +42,7 @@ export function Settings({ t }: { t: (key: string) => string }) {
               <DropdownMenuSubTrigger>
                 <LuSun className="mr-2 h-4 w-4 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
                 <LuMoonStar className="absolute mr-2 h-4 w-4 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                <span>{t("dmode_setting")}</span>
               </DropdownMenuSubTrigger>
               <DropdownMenuPortal>
                 <DropdownMenuSubContent>
@@ -63,6 +64,7 @@ export function Settings({ t }: { t: (key: string) => string }) {
             <DropdownMenuSub>
               <DropdownMenuSubTrigger>
                 <LuLanguages className="mr-2 h-4 w-4" />
+                <span>{t("lang_setting")}</span>
               </DropdownMenuSubTrigger>
               <DropdownMenuPortal>
                 <DropdownMenuSubContent>
