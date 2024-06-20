@@ -1,7 +1,9 @@
-# Snap礼包计算器
+# SnapSnap.Pro - Snap礼包计算器
 [English](https://github.com/lemonteaau/snap-bundle-calculator/blob/main/README.md) | 中文
 
-Snap礼包计算器是一款用来计算Marvel Snap礼包价值的Web应用。
+SnapSnap.Pro是一款用来计算Marvel Snap礼包价值的Web应用。
+
+<img width="350" alt="snapsnap.pro截图" src="https://github.com/lemonteaau/snap-bundle-calculator/assets/104964583/d6a51c41-46ad-432d-8f76-25f3fb01ca28">
 
 ## 致谢
 
@@ -16,7 +18,7 @@ Snap礼包计算器是一款用来计算Marvel Snap礼包价值的Web应用。
 
 ## 待完成功能
 - 用金币购买的礼包计算
-- 国际化（更多货币、语言，包括未来上线的国服）
+
 
 ## 安装（本地）
 1. Clone仓库:
