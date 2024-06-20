@@ -83,7 +83,7 @@ export function Calculator() {
     setSuggestion("");
   };
   return (
-    <div className="mb-16 grid text-center lg:mb-0 lg:w-full lg:max-w-full lg:px-32">
+    <div className="mb-8 max-w-[300px] text-center lg:mb-0 lg:w-full lg:max-w-full lg:px-32">
       <Card>
         <CardHeader>
           <CardDescription>{t("fill_form")}</CardDescription>
@@ -96,7 +96,7 @@ export function Calculator() {
                 width={40}
                 height={40}
                 alt="golden varient"
-                className="object-contain"
+                className="max-w-10 object-none"
               />
               <Input
                 type="number"
@@ -111,7 +111,7 @@ export function Calculator() {
                 width={40}
                 height={40}
                 alt="purple varient"
-                className="object-contain"
+                className="max-w-10 object-contain"
               />
               <Input
                 type="number"
@@ -126,7 +126,7 @@ export function Calculator() {
                 width={40}
                 height={40}
                 alt="gold"
-                className="object-contain"
+                className="max-w-10 object-contain"
               />
               <Input
                 type="number"
@@ -141,7 +141,7 @@ export function Calculator() {
                 width={40}
                 height={40}
                 alt="credit"
-                className="object-contain"
+                className="max-w-10 object-contain"
               />
               <Input
                 type="number"
@@ -156,7 +156,7 @@ export function Calculator() {
                 width={40}
                 height={40}
                 alt="token"
-                className="object-contain"
+                className="max-w-10 object-contain"
               />
               <Input
                 type="number"
@@ -171,7 +171,7 @@ export function Calculator() {
                 width={40}
                 height={40}
                 alt="cache key"
-                className="object-contain"
+                className="max-w-10 object-scale-down"
               />
               <Input
                 type="number"
@@ -181,7 +181,7 @@ export function Calculator() {
               />
             </div>
             <div className="flex items-center justify-center gap-4">
-              <CircleDollarSign size={40} className="object-contain" />
+              <CircleDollarSign size={40} className="max-w-10" />
               <Input
                 type="number"
                 placeholder={t("price_in_usd")}
