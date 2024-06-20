@@ -5,9 +5,6 @@ import Image from "next/image";
 import { Check, CircleDollarSign } from "lucide-react";
 import { LuPlus, LuMinus } from "react-icons/lu";
 import { GrPowerReset } from "react-icons/gr";
-import aus from "/icon/aus.svg";
-import chn from "/icon/chn.svg";
-import usa from "/icon/usa.svg";
 import { Button } from "@/components/ui/button";
 import {
   Card,
