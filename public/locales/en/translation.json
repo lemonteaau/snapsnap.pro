@@ -12,7 +12,7 @@
   "num_of_credits": "Num of Credits",
   "num_of_tokens": "Num of Collector's Tokens",
   "num_of_cache_keys": "Num of Cache Keys",
-  "price_in_usd": "Price in USD",
+  "price": "Price",
   "value": "Value",
   "value_it": "Value it!",
   "reset": "Reset",
@@ -24,5 +24,8 @@
   "bad_deal": "Bad deal",
   "light_mode": "Light",
   "dark_mode": "Dark",
-  "system_mode": "System"
+  "system_mode": "System",
+  "AUD": "AUD",
+  "USD": "USD",
+  "CNY": "CNY"
 }
