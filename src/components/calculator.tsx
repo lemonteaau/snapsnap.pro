@@ -258,7 +258,7 @@ export function Calculator() {
           )}
         </CardContent>
 
-        <CardFooter className="flex flex-col gap-2">
+        <CardFooter className="flex flex-col gap-2 lg:flex-row">
           <Button className="w-full" onClick={calculateValue} disabled={!price}>
             <Check className="mr-2 h-4 w-4" />
             {t("value_it")}
