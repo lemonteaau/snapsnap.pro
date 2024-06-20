@@ -1,10 +1,10 @@
-# Snap Bundle Calculator
+# SnapSnap.Pro - Calculator for Snap Bundle
 
 English | [中文](https://github.com/lemonteaau/snap-bundle-calculator/blob/main/README_zh.md)
 
-Snap Bundle Calculator is a tool for calculating the value of various bundles in Marvel Snap.
+SnapSnap.Pro is a tool for calculating the value of various bundles in Marvel Snap.
 
-<img width="530" alt="image" src="https://github.com/lemonteaau/snap-bundle-calculator/assets/104964583/497c290f-6143-4893-997a-9ebc24bfffbd">
+<img width="350" alt="screenshot of snapsnap.pro" src="https://github.com/lemonteaau/snap-bundle-calculator/assets/104964583/7e7db2e4-9af3-4bdb-bcfd-66f895b4515c">
 
 
 ## Acknowledgements
@@ -12,7 +12,7 @@ The current calculation logic is based on the video by "漫威Snap-校草" on Bi
 
 ## Usage
 
-1. Open the web app at [https://snap-calculator.vercel.app/](https://snap-calculator.vercel.app/).
+1. Open the web app at [https://www.snapsnap.pro](https://www.snapsnap.pro).
 2. Enter detail of the bundle.
 3. Enter the price.
 4. Click the "Value it!" button to see the calculated value and purchase recommendation.
@@ -25,7 +25,6 @@ The current calculation logic is based on the video by "漫威Snap-校草" on Bi
 
 ## TODO List
 - Calculation for bundles purchased with gold
-- i18n (more currency & language)
 
 ## Installation (Locally)
 
