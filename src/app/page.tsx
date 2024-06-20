@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { FaGithub } from "react-icons/fa";
-import { ModeToggle } from "@/components/mode-toggle";
+import { Settings } from "@/components/settings";
 import { Calculator } from "@/components/calculator";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
@@ -23,21 +23,19 @@ export default function Home() {
 
 function Header({ t }: { t: (key: string) => string }) {
   return (
-    <header className="z-10 w-full max-w-5xl font-mono text-sm">
+    <header className="z-10 w-full max-w-4xl">
       <div className="fixed left-0 top-0 flex w-full items-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-        <p className="flex-grow text-center text-base font-bold lg:text-xl">
-          {t("snap_bundle_calculator")}
-        </p>
-        <div className="absolute ml-4">
-          <ModeToggle t={t} />
+        <div className="flex w-full items-center justify-center">
+          <Image
+            src="/image/logo.svg"
+            width={80}
+            height={80}
+            alt="logo of the website"
+          />
         </div>
-        <Image
-          src="/image/logo.svg"
-          width={75}
-          height={75}
-          alt="logo of the website"
-          className="absolute right-4"
-        />
+        <div className="absolute ml-4">
+          <Settings t={t} />
+        </div>
       </div>
     </header>
   );
