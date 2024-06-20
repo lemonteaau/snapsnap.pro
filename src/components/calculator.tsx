@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Check, CircleDollarSign } from "lucide-react";
+import { LuPlus, LuMinus } from "react-icons/lu";
 import { GrPowerReset } from "react-icons/gr";
 
 import { Button } from "@/components/ui/button";
@@ -91,7 +92,7 @@ export function Calculator() {
         </CardHeader>
         <CardContent>
           <div className="flex flex-col gap-5">
-            <div className="grid grid-cols-3 gap-5">
+            <div className="mb-3 grid grid-cols-2 gap-6 lg:grid-cols-3">
               {[
                 {
                   src: "/image/gvarient.webp",
@@ -139,24 +140,43 @@ export function Calculator() {
                 >
                   <Image
                     src={src}
-                    width={80}
-                    height={80}
+                    width={60}
+                    height={60}
                     alt={alt}
                     className="max-h-24 object-fill"
                   />
-                  <Input
-                    type="number"
-                    placeholder="0"
-                    value={value === 0 ? "" : value}
-                    min={0}
-                    step={step}
-                    onChange={(e) => setter(Number(e.target.value))}
-                  />
+                  <div className="flex gap-1">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="rounded-full"
+                      onClick={() => setter(value - step)}
+                    >
+                      <LuMinus className="h-3 w-3" />
+                    </Button>
+                    <Input
+                      type="number"
+                      placeholder="0"
+                      value={value === 0 ? "" : value}
+                      min={0}
+                      step={step}
+                      className="max-w-[60px] text-center"
+                      onChange={(e) => setter(Number(e.target.value))}
+                    />
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="rounded-full"
+                      onClick={() => setter(value + step)}
+                    >
+                      <LuPlus className="h-3 w-3" />
+                    </Button>
+                  </div>
                 </div>
               ))}
             </div>
             <div className="flex items-center justify-center gap-4">
-              <CircleDollarSign size={40} className="max-w-10" />
+              <CircleDollarSign className="h-8 w-8" />
               <Input
                 type="number"
                 placeholder={t("price_in_usd")}
@@ -172,16 +192,14 @@ export function Calculator() {
           )}
         </CardContent>
 
-        <CardFooter>
+        <CardFooter className="flex flex-col gap-2">
           <Button className="w-full" onClick={calculateValue} disabled={!price}>
             <Check className="mr-2 h-4 w-4" />
             {t("value_it")}
           </Button>
-        </CardFooter>
-        <CardFooter>
           <Button
             className="w-full"
-            variant="secondary"
+            variant={!price ? "secondary" : "destructive"}
             onClick={resetValues}
             disabled={!price}
           >
