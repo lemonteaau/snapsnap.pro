@@ -45,11 +45,11 @@ function Header({ t }: { t: (key: string) => string }) {
 
 function Footer({ t }: { t: (key: string) => string }) {
   return (
-    <footer className="fixed bottom-0 left-0 flex h-16 w-full flex-col items-center justify-center gap-3 bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:bg-none">
-      <p className="text-sm">
+    <footer className="flex h-16 w-full flex-col items-center justify-center gap-3 bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:bg-none">
+      <p className="text-center text-sm">
         {t("special_thanks")}{" "}
         <Link href="https://www.bilibili.com/video/BV1K1421d7WB/">
-          漫威Snap-校草
+          终极逆转-校草
         </Link>{" "}
         {t("for_calculation_logic")}
       </p>
