@@ -95,40 +95,40 @@ export function Calculator() {
             <div className="mb-3 grid grid-cols-2 gap-6 lg:grid-cols-3">
               {[
                 {
-                  src: "/image/gvarient.webp",
+                  src: "/image/gvarient.png",
                   alt: "golden variant",
                   value: gvarient,
                   setter: setGVarient,
                 },
                 {
-                  src: "/image/pvarient.webp",
+                  src: "/image/pvarient.png",
                   alt: "purple variant",
                   value: pvarient,
                   setter: setPVarient,
                 },
                 {
-                  src: "/image/gold.webp",
+                  src: "/image/gold.png",
                   alt: "gold",
                   value: gold,
                   setter: setGold,
                   step: 100,
                 },
                 {
-                  src: "/image/credits.webp",
+                  src: "/image/credits.png",
                   alt: "credit",
                   value: credit,
                   setter: setCredit,
                   step: 100,
                 },
                 {
-                  src: "/image/tokens.webp",
+                  src: "/image/tokens.png",
                   alt: "token",
                   value: token,
                   setter: setToken,
                   step: 100,
                 },
                 {
-                  src: "/image/cachekey.webp",
+                  src: "/image/cachekey.png",
                   alt: "cache key",
                   value: cacheKey,
                   setter: setCacheKey,
@@ -143,7 +143,7 @@ export function Calculator() {
                     width={60}
                     height={60}
                     alt={alt}
-                    className="max-h-24 object-fill"
+                    // className="max-h-24"
                   />
                   <div className="flex gap-1">
                     <Button
