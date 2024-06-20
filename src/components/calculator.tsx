@@ -211,7 +211,7 @@ export function Calculator() {
                     {currencyMap[currency]}
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="rounded-md bg-white p-2 shadow-md">
+                <DropdownMenuContent className="rounded-md p-2 shadow-md">
                   <DropdownMenuRadioGroup
                     value={currency}
                     onValueChange={setCurrency}

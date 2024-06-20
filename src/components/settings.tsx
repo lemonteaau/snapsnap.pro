@@ -34,7 +34,7 @@ export function Settings({ t }: { t: (key: string) => string }) {
             <LuMenu />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="w-40 rounded-md bg-white p-2 shadow-md">
+        <DropdownMenuContent className="w-40 rounded-md p-2 shadow-md">
           <DropdownMenuLabel> {t("settings")} </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
