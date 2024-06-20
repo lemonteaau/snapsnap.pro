@@ -1,10 +1,11 @@
 {
   "welcome": "欢迎",
   "snap_bundle_calculator": "Snap 礼包计算器",
+  "settings": "设置",
   "special_thanks": "特别感谢",
   "for_calculation_logic": "提供的计算逻辑。",
   "by": "作者",
-  "fill_form": "填写表单进行计算。",
+  "fill_form": "填写礼包详情进行计算。",
   "num_of_golden_varients": "黄金变体数量",
   "num_of_purple_varients": "紫色变体数量",
   "num_of_gold": "金块数量",

@@ -1,10 +1,11 @@
 {
   "welcome": "Welcome",
   "snap_bundle_calculator": "Snap Calculator",
+  "settings": "Settings",
   "special_thanks": "Special thanks to",
   "for_calculation_logic": "for the calculation logic.",
   "by": "By",
-  "fill_form": "Fill the form to calculate.",
+  "fill_form": "Fill with bundle detail to calculate.",
   "num_of_golden_varients": "Num of Golden Varients",
   "num_of_purple_varients": "Num of Purple Varients",
   "num_of_gold": "Num of Gold",
