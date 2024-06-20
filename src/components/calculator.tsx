@@ -82,6 +82,7 @@ export function Calculator() {
     setValue(0);
     setSuggestion("");
   };
+
   return (
     <div className="mb-8 max-w-[300px] text-center lg:mb-0 lg:w-full lg:max-w-full lg:px-32">
       <Card>
@@ -90,95 +91,69 @@ export function Calculator() {
         </CardHeader>
         <CardContent>
           <div className="flex flex-col gap-5">
-            <div className="flex items-center justify-center gap-4">
-              <Image
-                src="/image/gvarient.webp"
-                width={40}
-                height={40}
-                alt="golden varient"
-                className="max-w-10 object-none"
-              />
-              <Input
-                type="number"
-                placeholder={t("num_of_golden_varients")}
-                value={gvarient === 0 ? "" : gvarient}
-                onChange={(e) => setGVarient(Number(e.target.value))}
-              />
-            </div>
-            <div className="flex items-center justify-center gap-4">
-              <Image
-                src="/image/pvarient.webp"
-                width={40}
-                height={40}
-                alt="purple varient"
-                className="max-w-10 object-contain"
-              />
-              <Input
-                type="number"
-                placeholder={t("num_of_purple_varients")}
-                value={pvarient === 0 ? "" : pvarient}
-                onChange={(e) => setPVarient(Number(e.target.value))}
-              />
-            </div>
-            <div className="flex items-center justify-center gap-4">
-              <Image
-                src="/image/gold.webp"
-                width={40}
-                height={40}
-                alt="gold"
-                className="max-w-10 object-contain"
-              />
-              <Input
-                type="number"
-                placeholder={t("num_of_gold")}
-                value={gold === 0 ? "" : gold}
-                onChange={(e) => setGold(Number(e.target.value))}
-              />
-            </div>
-            <div className="flex items-center justify-center gap-4">
-              <Image
-                src="/image/credits.webp"
-                width={40}
-                height={40}
-                alt="credit"
-                className="max-w-10 object-contain"
-              />
-              <Input
-                type="number"
-                placeholder={t("num_of_credits")}
-                value={credit === 0 ? "" : credit}
-                onChange={(e) => setCredit(Number(e.target.value))}
-              />
-            </div>
-            <div className="flex items-center justify-center gap-4">
-              <Image
-                src="/image/tokens.webp"
-                width={40}
-                height={40}
-                alt="token"
-                className="max-w-10 object-contain"
-              />
-              <Input
-                type="number"
-                placeholder={t("num_of_tokens")}
-                value={token === 0 ? "" : token}
-                onChange={(e) => setToken(Number(e.target.value))}
-              />
-            </div>
-            <div className="flex items-center justify-center gap-4">
-              <Image
-                src="/image/cachekey.webp"
-                width={40}
-                height={40}
-                alt="cache key"
-                className="max-w-10 object-scale-down"
-              />
-              <Input
-                type="number"
-                placeholder={t("num_of_cache_keys")}
-                value={cacheKey === 0 ? "" : cacheKey}
-                onChange={(e) => setCacheKey(Number(e.target.value))}
-              />
+            <div className="grid grid-cols-3 gap-5">
+              {[
+                {
+                  src: "/image/gvarient.webp",
+                  alt: "golden variant",
+                  value: gvarient,
+                  setter: setGVarient,
+                },
+                {
+                  src: "/image/pvarient.webp",
+                  alt: "purple variant",
+                  value: pvarient,
+                  setter: setPVarient,
+                },
+                {
+                  src: "/image/gold.webp",
+                  alt: "gold",
+                  value: gold,
+                  setter: setGold,
+                  step: 100,
+                },
+                {
+                  src: "/image/credits.webp",
+                  alt: "credit",
+                  value: credit,
+                  setter: setCredit,
+                  step: 100,
+                },
+                {
+                  src: "/image/tokens.webp",
+                  alt: "token",
+                  value: token,
+                  setter: setToken,
+                  step: 100,
+                },
+                {
+                  src: "/image/cachekey.webp",
+                  alt: "cache key",
+                  value: cacheKey,
+                  setter: setCacheKey,
+                },
+              ].map(({ src, alt, value, setter, step = 1 }, index) => (
+                <div
+                  key={index}
+                  className="flex flex-col items-center justify-center gap-4"
+                >
+                  <Image
+                    src={src}
+                    width={80}
+                    height={80}
+                    alt={alt}
+                    className="max-h-24 object-fill"
+                  />
+                  <Input
+                    type="number"
+                    placeholder="0"
+                    value={value === 0 ? "" : value}
+                    min={0}
+                    step={step}
+                    onChange={(e) => setter(Number(e.target.value))}
+                  />
+                </div>
+              ))}
             </div>
             <div className="flex items-center justify-center gap-4">
               <CircleDollarSign size={40} className="max-w-10" />
@@ -196,6 +171,7 @@ export function Calculator() {
             </div>
           )}
         </CardContent>
+
         <CardFooter>
           <Button className="w-full" onClick={calculateValue} disabled={!price}>
             <Check className="mr-2 h-4 w-4" />
