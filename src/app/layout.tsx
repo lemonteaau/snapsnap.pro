@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import Favicon from "/public/image/favicon.ico";
 import "../lib/i18n";
-import Head from "next/head";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,17 +22,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        {process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL &&
-          process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
-            <script
-              async
-              defer
-              src={process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL}
-              data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
-            ></script>
-          )}
-      </Head>
       <body className={cn("antialiased", inter.className)}>
         <ThemeProvider
           attribute="class"
@@ -42,6 +31,15 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+        {process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL &&
+          process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
+            <Script
+              async
+              defer
+              src={process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL}
+              data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+            />
+          )}
       </body>
     </html>
   );
