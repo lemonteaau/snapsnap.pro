@@ -29,7 +29,7 @@ function Header({ t }: { t: (key: string) => string }) {
           <Image
             src="/image/logo.svg"
             width={80}
-            height={80}
+            height={49}
             alt="logo of the website"
           />
         </div>
