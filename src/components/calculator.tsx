@@ -85,7 +85,7 @@ export function Calculator() {
   };
 
   return (
-    <div className="mb-8 max-w-[300px] text-center lg:mb-0 lg:w-full lg:max-w-full lg:px-32">
+    <div className="mb-8 max-w-[380px] text-center lg:mb-0 lg:w-full lg:min-w-[900px] lg:px-32">
       <Card>
         <CardHeader>
           <CardDescription>{t("fill_form")}</CardDescription>
