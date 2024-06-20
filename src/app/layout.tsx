@@ -3,9 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
-import { Analytics } from "@vercel/analytics/react";
 import Favicon from "/public/image/favicon.ico";
 import "../lib/i18n";
+import Head from "next/head";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +22,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Head>
+        {process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL &&
+          process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && (
+            <script
+              async
+              defer
+              src={process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL}
+              data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+            ></script>
+          )}
+      </Head>
       <body className={cn("antialiased", inter.className)}>
         <ThemeProvider
           attribute="class"
@@ -31,7 +42,6 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
-        <Analytics />
       </body>
     </html>
   );
