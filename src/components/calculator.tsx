@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Check, CircleDollarSign } from "lucide-react";
 import { LuPlus, LuMinus, LuInfo } from "react-icons/lu";
 import { GrPowerReset } from "react-icons/gr";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
