@@ -3,8 +3,9 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Check, CircleDollarSign } from "lucide-react";
-import { LuPlus, LuMinus } from "react-icons/lu";
+import { LuPlus, LuMinus, LuInfo } from "react-icons/lu";
 import { GrPowerReset } from "react-icons/gr";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -105,6 +106,49 @@ export function Calculator() {
     USD: t("USD"),
   };
 
+  const itemInfo = [
+    {
+      src: "/image/gvarient.png",
+      alt: "golden variant",
+      value: gvarient,
+      setter: setGVarient,
+    },
+    {
+      src: "/image/pvarient.png",
+      alt: "purple variant",
+      value: pvarient,
+      setter: setPVarient,
+    },
+    {
+      src: "/image/gold.png",
+      alt: "gold",
+      value: gold,
+      setter: setGold,
+      step: 100,
+    },
+    {
+      src: "/image/credits.png",
+      alt: "credit",
+      value: credit,
+      setter: setCredit,
+      step: 100,
+    },
+    {
+      src: "/image/tokens.png",
+      alt: "token",
+      value: token,
+      setter: setToken,
+      step: 100,
+    },
+    {
+      src: "/image/cachekey.png",
+      alt: "cache key",
+      value: cacheKey,
+      setter: setCacheKey,
+      itemInfo: t("cache_key_info"),
+    },
+  ];
+
   return (
     <div className="mb-8 max-w-[380px] text-center lg:mb-0 lg:w-full lg:min-w-[900px] lg:px-32">
       <Card>
@@ -114,87 +158,63 @@ export function Calculator() {
         <CardContent>
           <div className="flex flex-col gap-7">
             <div className="mb-3 grid grid-cols-2 gap-6 lg:grid-cols-3">
-              {[
-                {
-                  src: "/image/gvarient.png",
-                  alt: "golden variant",
-                  value: gvarient,
-                  setter: setGVarient,
-                },
-                {
-                  src: "/image/pvarient.png",
-                  alt: "purple variant",
-                  value: pvarient,
-                  setter: setPVarient,
-                },
-                {
-                  src: "/image/gold.png",
-                  alt: "gold",
-                  value: gold,
-                  setter: setGold,
-                  step: 100,
-                },
-                {
-                  src: "/image/credits.png",
-                  alt: "credit",
-                  value: credit,
-                  setter: setCredit,
-                  step: 100,
-                },
-                {
-                  src: "/image/tokens.png",
-                  alt: "token",
-                  value: token,
-                  setter: setToken,
-                  step: 100,
-                },
-                {
-                  src: "/image/cachekey.png",
-                  alt: "cache key",
-                  value: cacheKey,
-                  setter: setCacheKey,
-                },
-              ].map(({ src, alt, value, setter, step = 1 }, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center justify-center gap-4"
-                >
-                  <Image
-                    src={src}
-                    width={60}
-                    height={60}
-                    alt={alt}
-                    // className="max-h-24"
-                  />
-                  <div className="flex gap-1">
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="rounded-full"
-                      onClick={() => setter(value - step)}
-                    >
-                      <LuMinus className="h-3 w-3" />
-                    </Button>
-                    <Input
-                      type="number"
-                      placeholder="0"
-                      value={value === 0 ? "" : value}
-                      min={0}
-                      step={step}
-                      className="max-w-[60px] text-center"
-                      onChange={(e) => setter(Number(e.target.value))}
-                    />
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      className="rounded-full"
-                      onClick={() => setter(value + step)}
-                    >
-                      <LuPlus className="h-3 w-3" />
-                    </Button>
+              {itemInfo.map(
+                (
+                  { src, alt, value, setter, step = 1, itemInfo = null },
+                  index,
+                ) => (
+                  <div
+                    key={index}
+                    className="relative flex flex-col items-center justify-center gap-4"
+                  >
+                    {alt === "cache key" ? (
+                      <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                          <Button
+                            variant="link"
+                            className="b-0 absolute right-3 top-10 m-0 h-5 w-5 rounded-full p-0 lg:right-7"
+                          >
+                            <LuInfo className="b-0 m-0 h-8 w-8 p-0" />
+                          </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent className="w-32">
+                          <div className="p-1 text-sm">{itemInfo}</div>
+                        </DropdownMenuContent>
+                      </DropdownMenu>
+                    ) : (
+                      ""
+                    )}
+                    <Image src={src} width={60} height={60} alt={alt} />
+                    <div className="flex gap-1">
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="rounded-full"
+                        onClick={() => setter(value - step)}
+                      >
+                        <LuMinus className="h-3 w-3" />
+                      </Button>
+                      <Input
+                        type="number"
+                        placeholder="0"
+                        value={value === 0 ? "" : value}
+                        min={0}
+                        step={step}
+                        className="max-w-[60px] text-center"
+                        onChange={(e) => setter(Number(e.target.value))}
+                      />
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="rounded-full"
+                        onClick={() => setter(value + step)}
+                      >
+                        <LuPlus className="h-3 w-3" />
+                      </Button>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ),
+              )}
             </div>
             <div className="flex items-center justify-center gap-4">
               <CircleDollarSign className="h-8 w-8" />
