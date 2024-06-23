@@ -10,8 +10,8 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Snap Snap Pro",
-  description: "Snaps like a pro.",
+  title: "Snap Snap Pro | Value Calculator for Marvel Snap Bundles",
+  description: "Easily calculate the value of bundles in Marvel Snap.",
   icons: [{ rel: "icon", url: Favicon.src }],
 };
 
