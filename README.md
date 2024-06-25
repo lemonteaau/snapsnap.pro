@@ -56,6 +56,7 @@ Thanks for i18n support from [AnZai](https://github.com/CN-huangwenhua).
 - Next.js
 - Tailwind CSS
 - shadcn/ui
+- Framer Motion
 - Bun
 
 ## Disclaimer
