@@ -49,6 +49,7 @@ SnapSnap.Pro是一款用来计算Marvel Snap礼包价值的Web应用。
 - Next.js
 - Tailwind CSS
 - shadcn/ui
+- Framer Motion
 - Bun
 
 ## 声明
