@@ -21,6 +21,7 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import i18n from "@/lib/i18n";
 
@@ -148,23 +149,49 @@ export function Calculator() {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        delayChildren: 0.1,
+        staggerChildren: 0.05,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
+  };
+
   return (
-    <div className="mb-8 max-w-[380px] text-center lg:mb-0 lg:w-full lg:min-w-[900px] lg:px-32">
+    <motion.div
+      className="mb-8 max-w-[380px] text-center lg:mb-0 lg:w-full lg:min-w-[900px] lg:px-32"
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+    >
       <Card>
         <CardHeader>
           <CardDescription>{t("fill_form")}</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col gap-7">
-            <div className="mb-3 grid grid-cols-2 gap-6 lg:grid-cols-3">
+            <motion.div
+              className="mb-3 grid grid-cols-2 gap-6 lg:grid-cols-3"
+              variants={containerVariants}
+            >
               {itemInfo.map(
                 (
                   { src, alt, value, setter, step = 1, itemInfo = null },
                   index,
                 ) => (
-                  <div
+                  <motion.div
                     key={index}
                     className="relative flex flex-col items-center justify-center gap-4"
+                    variants={itemVariants}
                   >
                     {alt === "cache key" ? (
                       <DropdownMenu>
@@ -211,10 +238,10 @@ export function Calculator() {
                         <LuPlus className="h-3 w-3" />
                       </Button>
                     </div>
-                  </div>
+                  </motion.div>
                 ),
               )}
-            </div>
+            </motion.div>
             <div className="flex items-center justify-center gap-4">
               <CircleDollarSign className="h-8 w-8" />
               <Input
@@ -293,6 +320,6 @@ export function Calculator() {
           </Button>
         </CardFooter>
       </Card>
-    </div>
+    </motion.div>
   );
 }
