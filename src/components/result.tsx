@@ -63,7 +63,13 @@ export function Result({
                   {t("value_info")} {value}%
                 </DialogDescription>
               </div>
-              <Image src={imageSrc} alt={suggestion} width={100} height={100} />
+              <Image
+                src={imageSrc}
+                alt={suggestion}
+                width={100}
+                height={100}
+                priority={true}
+              />
             </div>
           </DialogContent>
         </Dialog>
@@ -83,6 +89,7 @@ export function Result({
                   alt={suggestion}
                   width={100}
                   height={100}
+                  priority={true}
                 />
               </div>
             </DrawerHeader>
