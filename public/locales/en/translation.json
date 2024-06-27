@@ -22,6 +22,8 @@
   "good_deal": "Good deal",
   "normal_deal": "Normal deal",
   "bad_deal": "Bad deal",
+  "value_info": "The value of the bundle is",
+  "okay": "Okay",
   "theme_setting": "Themes",
   "lang_setting": "Languages",
   "light_mode": "Light",
