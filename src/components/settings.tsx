@@ -1,6 +1,6 @@
 "use client";
 
-import { LuSun, LuMoonStar, LuLanguages, LuMenu } from "react-icons/lu";
+import { LuSun, LuMoonStar, LuLanguages, LuMenu, LuMail } from "react-icons/lu";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -78,6 +78,15 @@ export function Settings({ t }: { t: (key: string) => string }) {
               </DropdownMenuPortal>
             </DropdownMenuSub>
           </DropdownMenuGroup>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem
+            onClick={() => {
+              window.location.href = "mailto:doublemintgrape@outlook.com";
+            }}
+          >
+            <LuMail className="mr-2 h-4 w-4" />
+            <span>{t("contact")}</span>
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
