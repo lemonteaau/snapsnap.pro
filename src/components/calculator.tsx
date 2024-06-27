@@ -22,6 +22,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { motion } from "framer-motion";
+import { Result } from "@/components/result";
 import { useTranslation } from "react-i18next";
 import i18n from "@/lib/i18n";
 
@@ -29,7 +30,9 @@ export function Calculator() {
   const { t } = useTranslation();
   useEffect(() => {
     const handleLanguageChange = () => {
-      console.log("Language changed to:", i18n.language);
+      if (process.env.NODE_ENV === "development") {
+        console.log("Language changed to:", i18n.language);
+      }
     };
 
     i18n.on("languageChanged", handleLanguageChange);
@@ -47,6 +50,7 @@ export function Calculator() {
   const [value, setValue] = useState(0);
   const [suggestion, setSuggestion] = useState("");
   const [currency, setCurrency] = useState("USD");
+  const [resultShow, setResultShow] = useState(false);
 
   //Exchange rate for currency.
   const exchangeRates: { [key: string]: number } = {
@@ -87,7 +91,9 @@ export function Calculator() {
         setSuggestion(t("bad_deal"));
       }
     }
+    setResultShow(true);
   };
+
   const resetValues = () => {
     setGVarient(0);
     setPVarient(0);
@@ -178,9 +184,9 @@ export function Calculator() {
           <CardDescription>{t("fill_form")}</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="flex flex-col gap-7">
+          <div className="flex flex-col gap-4">
             <motion.div
-              className="mb-3 grid grid-cols-2 gap-6 lg:grid-cols-3"
+              className="mb-3 grid grid-cols-2 gap-5 lg:grid-cols-3 lg:gap-8"
               variants={containerVariants}
             >
               {itemInfo.map(
@@ -297,11 +303,15 @@ export function Calculator() {
               </DropdownMenu>
             </div>
           </div>
-          {value !== null && (
-            <div className="mt-5 text-lg font-bold">
-              {t("value")}: {value}% {suggestion}
-            </div>
-          )}
+          {/* Props drilling, I know it's not elegant but please don't mind it */}
+          <div className="hidden">
+            <Result
+              open={resultShow}
+              setOpen={setResultShow}
+              value={value}
+              suggestion={suggestion}
+            />
+          </div>
         </CardContent>
 
         <CardFooter className="flex flex-col gap-2 lg:flex-row">
