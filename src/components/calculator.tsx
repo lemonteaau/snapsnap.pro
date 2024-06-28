@@ -5,6 +5,8 @@ import Image from "next/image";
 import { Check, CircleDollarSign } from "lucide-react";
 import { LuPlus, LuMinus, LuInfo } from "react-icons/lu";
 import { GrPowerReset } from "react-icons/gr";
+import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -13,7 +15,6 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -185,6 +186,7 @@ export function Calculator() {
         </CardHeader>
         <CardContent>
           <div className="flex flex-col gap-4">
+            <Separator />
             <motion.div
               className="mb-3 grid grid-cols-2 gap-5 lg:grid-cols-3 lg:gap-8"
               variants={containerVariants}
@@ -248,6 +250,7 @@ export function Calculator() {
                 ),
               )}
             </motion.div>
+            <Separator />
             <div className="flex items-center justify-center gap-4">
               <CircleDollarSign className="h-8 w-8" />
               <Input
