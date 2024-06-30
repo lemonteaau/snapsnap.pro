@@ -33,5 +33,6 @@
   "cache_key_info": "1 key = 5000 gold",
   "AUD": "AUD",
   "USD": "USD",
-  "CNY": "CNY"
+  "CNY": "CNY",
+  "HKD": "HKD"
 }
