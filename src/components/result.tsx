@@ -71,7 +71,6 @@ export function Result({
                 alt={suggestion}
                 priority={true}
                 quality={20}
-                placeholder="blur"
               />
             </div>
           </DialogContent>
