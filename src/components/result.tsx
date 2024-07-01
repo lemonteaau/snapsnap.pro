@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import {
   Drawer,
@@ -19,6 +17,11 @@ import {
 } from "@/components/ui/dialog";
 import { useMediaQuery } from "react-responsive";
 import { useTranslation } from "react-i18next";
+import stfuBuy from "../../public/image/stfu_buy.png";
+import buyIt from "../../public/image/buy_it.png";
+import goodDeal from "../../public/image/good_deal.png";
+import normalDeal from "../../public/image/normal_deal.png";
+import badDeal from "../../public/image/bad_deal.png";
 import Image from "next/image";
 
 export function Result({
@@ -37,15 +40,15 @@ export function Result({
 
   const getImageSrc = () => {
     if (value >= 280) {
-      return "/image/stfu_buy.png";
+      return stfuBuy;
     } else if (value >= 240) {
-      return "/image/buy_it.png";
+      return buyIt;
     } else if (value >= 200) {
-      return "/image/good_deal.png";
+      return goodDeal;
     } else if (value >= 160) {
-      return "/image/normal_deal.png";
+      return normalDeal;
     } else {
-      return "/image/bad_deal.png";
+      return badDeal;
     }
   };
 
