@@ -69,9 +69,8 @@ export function Result({
               <Image
                 src={imageSrc}
                 alt={suggestion}
-                width={100}
-                height={100}
                 priority={true}
+                placeholder="blur"
               />
             </div>
           </DialogContent>
