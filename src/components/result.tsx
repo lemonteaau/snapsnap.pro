@@ -70,6 +70,7 @@ export function Result({
                 src={imageSrc}
                 alt={suggestion}
                 priority={true}
+                quality={20}
                 placeholder="blur"
               />
             </div>
