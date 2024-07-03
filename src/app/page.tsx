@@ -43,7 +43,7 @@ function Header({ t }: { t: (key: string) => string }) {
 
 function Footer({ t }: { t: (key: string) => string }) {
   return (
-    <footer className="flex h-16 w-full flex-col items-center justify-center gap-1 bg-gradient-to-t from-white via-white text-center dark:from-black dark:via-black lg:bg-none">
+    <footer className="flex h-auto w-full flex-col items-center justify-center gap-1 bg-gradient-to-t from-white via-white text-center dark:from-black dark:via-black lg:bg-none">
       <p className="text-center text-sm">{t("special_thanks")}</p>
       <p className="text-center text-sm">
         <Link href="https://www.bilibili.com/video/BV1K1421d7WB/">
