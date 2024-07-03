@@ -65,7 +65,7 @@ export function Calculator() {
     // Calculate the value of the items based on gold.
     const gvarientValue = gvarient * 1200;
     const pvarientValue = pvarient * 700;
-    const cacheKeyValue = cacheKey * 5000;
+    const cacheKeyValue = cacheKey * 4000;
     const totalGold = gold + (credit / 5) * 4 + (token / 3) * 4;
     const totalValueGold =
       gvarientValue + pvarientValue + cacheKeyValue + totalGold;
