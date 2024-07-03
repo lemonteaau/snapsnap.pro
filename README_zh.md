@@ -8,7 +8,7 @@ SnapSnap.Pro是一款用来计算Marvel Snap礼包价值的Web应用。
 ## 致谢
 
 当前的计算逻辑参考了[漫威Snap-校草](https://www.bilibili.com/video/BV1K1421d7WB/)视频中的内容，在此对视频制作者表示感谢。
-
+感谢来自token和Rainbow对于聚焦箱钥匙计算逻辑的建议。
 感谢[AnZai](https://github.com/CN-huangwenhua)为本项目提供了汉化支持。
 
 ## 使用方法
