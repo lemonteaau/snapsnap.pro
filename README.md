@@ -9,7 +9,7 @@ SnapSnap.Pro is a tool for calculating the value of various bundles in Marvel Sn
 
 ## Acknowledgements
 The current calculation logic is based on the video by "漫威Snap-校草" on Bilibili. You can watch the video [here](https://www.bilibili.com/video/BV1K1421d7WB/).
-
+Thanks for suggestion on cache key calculation from token and Rainbow.
 Thanks for i18n support from [AnZai](https://github.com/CN-huangwenhua).
 
 ## Usage
