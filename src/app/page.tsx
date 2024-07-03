@@ -51,6 +51,10 @@ function Footer({ t }: { t: (key: string) => string }) {
         </Link>
         , token, Rainbow {t("for_calculation_logic")}
       </p>
+      <p className="text-center text-sm">
+        <Link href="https://github.com/CN-huangwenhua">AnZai</Link>{" "}
+        {t("for_i18n_support")}
+      </p>
       <Link
         href="https://github.com/lemonteaau/snap-bundle-calculator"
         className="flex flex-nowrap gap-2 text-sm"
