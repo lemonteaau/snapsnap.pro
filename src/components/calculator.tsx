@@ -275,6 +275,7 @@ export function Calculator() {
                         onChange={(e) =>
                           setter(Math.max(Number(e.target.value), 0))
                         }
+                        tabIndex={index + 1}
                       />
                       <Button
                         variant="ghost"
@@ -308,6 +309,7 @@ export function Calculator() {
                     value={priceInCash === 0 ? "" : priceInCash}
                     className="max-w-[120px] text-center"
                     onChange={(e) => setPriceInCash(Number(e.target.value))}
+                    tabIndex={7}
                   />
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -372,6 +374,7 @@ export function Calculator() {
                     value={priceInGold === 0 ? "" : priceInGold}
                     className="max-w-[120px] text-center"
                     onChange={(e) => setPriceInGold(Number(e.target.value))}
+                    tabIndex={7}
                   />
                 </motion.div>
               )}
