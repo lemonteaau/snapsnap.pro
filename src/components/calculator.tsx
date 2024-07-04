@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import goldImg from "../../public/image/gold.png";
 import { Check, CircleDollarSign } from "lucide-react";
 import { LuPlus, LuMinus, LuInfo } from "react-icons/lu";
 import { GrPowerReset } from "react-icons/gr";
@@ -13,7 +12,6 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
@@ -194,10 +192,7 @@ export function Calculator() {
       variants={containerVariants}
     >
       <Card>
-        <CardHeader className="pb-2 pt-4 lg:py-7">
-          <CardDescription className="lg:pb-2">
-            {t("fill_form")}
-          </CardDescription>
+        <CardHeader className="py-3 lg:py-6">
           <Tabs defaultValue="cash_mode">
             <TabsList>
               <TabsTrigger
@@ -222,10 +217,10 @@ export function Calculator() {
           </Tabs>
         </CardHeader>
         <CardContent>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col">
             <Separator />
             <motion.div
-              className="mb-3 grid grid-cols-2 gap-5 lg:grid-cols-3 lg:gap-8"
+              className="my-4 grid grid-cols-2 gap-5 lg:grid-cols-3 lg:gap-8"
               variants={containerVariants}
             >
               {itemInfo.map(
@@ -300,7 +295,7 @@ export function Calculator() {
                   exit="hidden"
                   variants={itemVariants}
                   transition={{ duration: 0.1 }}
-                  className="flex items-center justify-center gap-4"
+                  className="mt-4 flex items-center justify-center gap-4"
                 >
                   <CircleDollarSign className="h-8 w-8" />
                   <Input
@@ -365,9 +360,15 @@ export function Calculator() {
                   exit="hidden"
                   variants={itemVariants}
                   transition={{ duration: 0.1 }}
-                  className="flex items-center justify-center gap-4"
+                  className="mt-4 flex items-center justify-center gap-4"
                 >
-                  <Image src={goldImg} alt="gold" className="h-10 w-10" />
+                  <Image
+                    src={"/image/gold.png"}
+                    width={60}
+                    height={60}
+                    alt="gold"
+                    className="h-10 w-10"
+                  />
                   <Input
                     type="number"
                     placeholder={t("price")}
