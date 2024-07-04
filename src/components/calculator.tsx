@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import goldImg from "../../public/image/gold.png";
 import { Check, CircleDollarSign } from "lucide-react";
 import { LuPlus, LuMinus, LuInfo } from "react-icons/lu";
 import { GrPowerReset } from "react-icons/gr";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   Card,
   CardContent,
@@ -47,11 +49,13 @@ export function Calculator() {
   const [credit, setCredit] = useState(0);
   const [token, setToken] = useState(0);
   const [cacheKey, setCacheKey] = useState(0);
-  const [price, setPrice] = useState(0);
+  const [priceInCash, setPriceInCash] = useState(0);
+  const [priceInGold, setPriceInGold] = useState(0);
   const [value, setValue] = useState(0);
   const [suggestion, setSuggestion] = useState("");
   const [currency, setCurrency] = useState("USD");
   const [resultShow, setResultShow] = useState(false);
+  const [mode, setMode] = useState("cash_mode");
 
   //Exchange rate for currency.
   const exchangeRates: { [key: string]: number } = {
@@ -60,8 +64,16 @@ export function Calculator() {
     USD: 1,
   };
 
-  const calculateValue = () => {
-    const priceInUSD = price / exchangeRates[currency];
+  const handleValueCalcu = function () {
+    let priceInUSD: number;
+
+    if (mode === "cash_mode") {
+      priceInUSD = priceInCash / exchangeRates[currency];
+    } else if (mode === "gold_mode") {
+      priceInUSD = priceInGold / 100;
+    } else {
+      priceInUSD = 0;
+    }
     // Calculate the value of the items based on gold.
     const gvarientValue = gvarient * 1200;
     const pvarientValue = pvarient * 700;
@@ -102,7 +114,8 @@ export function Calculator() {
     setCredit(0);
     setToken(0);
     setCacheKey(0);
-    setPrice(0);
+    setPriceInCash(0);
+    setPriceInGold(0);
     setValue(0);
     setSuggestion("");
   };
@@ -181,8 +194,32 @@ export function Calculator() {
       variants={containerVariants}
     >
       <Card>
-        <CardHeader>
-          <CardDescription>{t("fill_form")}</CardDescription>
+        <CardHeader className="pb-2 pt-4 lg:py-7">
+          <CardDescription className="lg:pb-2">
+            {t("fill_form")}
+          </CardDescription>
+          <Tabs defaultValue="cash_mode">
+            <TabsList>
+              <TabsTrigger
+                value="cash_mode"
+                onClick={() => {
+                  setMode("cash_mode");
+                  resetValues();
+                }}
+              >
+                {t("cash_mode")}
+              </TabsTrigger>
+              <TabsTrigger
+                value="gold_mode"
+                onClick={() => {
+                  setMode("gold_mode");
+                  resetValues();
+                }}
+              >
+                {t("gold_mode")}
+              </TabsTrigger>
+            </TabsList>
+          </Tabs>
         </CardHeader>
         <CardContent>
           <div className="flex flex-col gap-4">
@@ -224,7 +261,7 @@ export function Calculator() {
                         variant="ghost"
                         size="icon"
                         className="rounded-full"
-                        onClick={() => setter(value - step)}
+                        onClick={() => setter(Math.max(value - step, 0))}
                       >
                         <LuMinus className="h-3 w-3" />
                       </Button>
@@ -235,7 +272,9 @@ export function Calculator() {
                         min={0}
                         step={step}
                         className="max-w-[60px] text-center"
-                        onChange={(e) => setter(Number(e.target.value))}
+                        onChange={(e) =>
+                          setter(Math.max(Number(e.target.value), 0))
+                        }
                       />
                       <Button
                         variant="ghost"
@@ -252,58 +291,74 @@ export function Calculator() {
             </motion.div>
             <Separator />
             <div className="flex items-center justify-center gap-4">
-              <CircleDollarSign className="h-8 w-8" />
-              <Input
-                type="number"
-                placeholder={t("price")}
-                value={price === 0 ? "" : price}
-                className="max-w-[120px] text-center"
-                onChange={(e) => setPrice(Number(e.target.value))}
-              />
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="outline" className="max-w-[60px]">
-                    {currencyMap[currency]}
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent className="rounded-md p-2 shadow-md">
-                  <DropdownMenuRadioGroup
-                    value={currency}
-                    onValueChange={setCurrency}
-                  >
-                    <DropdownMenuRadioItem value="AUD">
-                      <Image
-                        height={18}
-                        width={18}
-                        src={"/icon/aus.svg"}
-                        alt="Flag of Australia"
-                        className="mr-2"
-                      />
-                      {t("AUD")}
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="CNY">
-                      <Image
-                        height={18}
-                        width={18}
-                        src={"/icon/chn.svg"}
-                        alt="Flag of China"
-                        className="mr-2"
-                      />
-                      {t("CNY")}
-                    </DropdownMenuRadioItem>
-                    <DropdownMenuRadioItem value="USD">
-                      <Image
-                        height={18}
-                        width={18}
-                        src={"/icon/usa.svg"}
-                        alt="Flag of USA"
-                        className="mr-2"
-                      />
-                      {t("USD")}
-                    </DropdownMenuRadioItem>
-                  </DropdownMenuRadioGroup>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              {mode === "cash_mode" && (
+                <>
+                  <CircleDollarSign className="h-8 w-8" />
+                  <Input
+                    type="number"
+                    placeholder={t("price")}
+                    value={priceInCash === 0 ? "" : priceInCash}
+                    className="max-w-[120px] text-center"
+                    onChange={(e) => setPriceInCash(Number(e.target.value))}
+                  />
+                  <DropdownMenu>
+                    <DropdownMenuTrigger asChild>
+                      <Button variant="outline" className="max-w-[60px]">
+                        {currencyMap[currency]}
+                      </Button>
+                    </DropdownMenuTrigger>
+                    <DropdownMenuContent className="rounded-md p-2 shadow-md">
+                      <DropdownMenuRadioGroup
+                        value={currency}
+                        onValueChange={setCurrency}
+                      >
+                        <DropdownMenuRadioItem value="AUD">
+                          <Image
+                            height={18}
+                            width={18}
+                            src={"/icon/aus.svg"}
+                            alt="Flag of Australia"
+                            className="mr-2"
+                          />
+                          {t("AUD")}
+                        </DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="CNY">
+                          <Image
+                            height={18}
+                            width={18}
+                            src={"/icon/chn.svg"}
+                            alt="Flag of China"
+                            className="mr-2"
+                          />
+                          {t("CNY")}
+                        </DropdownMenuRadioItem>
+                        <DropdownMenuRadioItem value="USD">
+                          <Image
+                            height={18}
+                            width={18}
+                            src={"/icon/usa.svg"}
+                            alt="Flag of USA"
+                            className="mr-2"
+                          />
+                          {t("USD")}
+                        </DropdownMenuRadioItem>
+                      </DropdownMenuRadioGroup>
+                    </DropdownMenuContent>
+                  </DropdownMenu>
+                </>
+              )}
+              {mode === "gold_mode" && (
+                <>
+                  <Image src={goldImg} alt="gold" className="h-10 w-10" />
+                  <Input
+                    type="number"
+                    placeholder={t("price")}
+                    value={priceInGold === 0 ? "" : priceInGold}
+                    className="max-w-[120px] text-center"
+                    onChange={(e) => setPriceInGold(Number(e.target.value))}
+                  />
+                </>
+              )}
             </div>
           </div>
           {/* Props drilling, I know it's not elegant but please don't mind it */}
@@ -318,15 +373,19 @@ export function Calculator() {
         </CardContent>
 
         <CardFooter className="flex flex-col gap-2 lg:flex-row">
-          <Button className="w-full" onClick={calculateValue} disabled={!price}>
+          <Button
+            className="w-full"
+            onClick={handleValueCalcu}
+            disabled={!priceInCash && !priceInGold}
+          >
             <Check className="mr-2 h-4 w-4" />
             {t("value_it")}
           </Button>
           <Button
             className="w-full"
-            variant={!price ? "secondary" : "destructive"}
+            variant={!priceInCash && !priceInGold ? "secondary" : "destructive"}
             onClick={resetValues}
-            disabled={!price}
+            disabled={!priceInCash && !priceInGold}
           >
             <GrPowerReset className="mr-2 h-4 w-4" />
             {t("reset")}
