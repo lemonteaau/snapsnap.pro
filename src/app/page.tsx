@@ -23,14 +23,16 @@ export default function Home() {
 
 function Header({ t }: { t: (key: string) => string }) {
   return (
-    <header className="w-full max-w-4xl lg:mt-6">
+    <header className="w-full max-w-2xl lg:mt-6">
       <div className="flex w-full items-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 py-5 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
         <div className="flex w-full items-center justify-center">
           <Image
             src="/image/logo.svg"
             width={80}
             height={49}
+            quality={70}
             alt="logo of the website"
+            className="h-15 w-24"
           />
         </div>
         <div className="absolute ml-4">
