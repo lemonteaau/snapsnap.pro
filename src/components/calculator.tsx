@@ -243,8 +243,10 @@ export function Calculator() {
                             <LuInfo className="b-0 m-0 h-8 w-8 p-0" />
                           </Button>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent className="w-32">
-                          <div className="p-1 text-sm">{itemInfo}</div>
+                        <DropdownMenuContent className="min-w-32">
+                          <div className="text-nowrap p-2 text-sm">
+                            {itemInfo}
+                          </div>
                         </DropdownMenuContent>
                       </DropdownMenu>
                     ) : (
