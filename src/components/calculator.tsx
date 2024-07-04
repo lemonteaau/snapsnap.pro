@@ -24,7 +24,7 @@ import {
   DropdownMenuRadioItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Result } from "@/components/result";
 import { useTranslation } from "react-i18next";
 import i18n from "@/lib/i18n";
@@ -290,9 +290,17 @@ export function Calculator() {
               )}
             </motion.div>
             <Separator />
-            <div className="flex items-center justify-center gap-4">
+            <AnimatePresence mode="wait">
               {mode === "cash_mode" && (
-                <>
+                <motion.div
+                  key="cash_mode"
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  variants={itemVariants}
+                  transition={{ duration: 0.1 }}
+                  className="flex items-center justify-center gap-4"
+                >
                   <CircleDollarSign className="h-8 w-8" />
                   <Input
                     type="number"
@@ -345,10 +353,18 @@ export function Calculator() {
                       </DropdownMenuRadioGroup>
                     </DropdownMenuContent>
                   </DropdownMenu>
-                </>
+                </motion.div>
               )}
               {mode === "gold_mode" && (
-                <>
+                <motion.div
+                  key="gold_mode"
+                  initial="hidden"
+                  animate="visible"
+                  exit="hidden"
+                  variants={itemVariants}
+                  transition={{ duration: 0.1 }}
+                  className="flex items-center justify-center gap-4"
+                >
                   <Image src={goldImg} alt="gold" className="h-10 w-10" />
                   <Input
                     type="number"
@@ -357,9 +373,9 @@ export function Calculator() {
                     className="max-w-[120px] text-center"
                     onChange={(e) => setPriceInGold(Number(e.target.value))}
                   />
-                </>
+                </motion.div>
               )}
-            </div>
+            </AnimatePresence>
           </div>
           {/* Props drilling, I know it's not elegant but please don't mind it */}
           <div className="hidden">
