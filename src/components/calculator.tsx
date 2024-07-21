@@ -48,6 +48,7 @@ export function Calculator() {
   const [token, setToken] = useState(0);
   const [cacheKey, setCacheKey] = useState(0);
   const [cardBooster, setCardBooster] = useState(0);
+  const [cardBorder, setCardBorder] = useState(0);
   const [priceInCash, setPriceInCash] = useState(0);
   const [priceInGold, setPriceInGold] = useState(0);
   const [value, setValue] = useState(0);
@@ -78,12 +79,14 @@ export function Calculator() {
     const pvarientValue = pvarient * 700;
     const cacheKeyValue = cacheKey * 4000;
     const cardBoosterValue = cardBooster * 0.125;
+    const cardBorderValue = cardBorder * 600;
     const totalGold = gold + (credit / 5) * 4 + (token / 3) * 4;
     const totalValueGold =
       gvarientValue +
       pvarientValue +
       cacheKeyValue +
       cardBoosterValue +
+      cardBorderValue +
       totalGold;
     const totalPriceGold = priceInUSD * 100;
 
@@ -119,6 +122,7 @@ export function Calculator() {
     setToken(0);
     setCacheKey(0);
     setCardBooster(0);
+    setCardBorder(0);
     setPriceInCash(0);
     setPriceInGold(0);
     setValue(0);
@@ -178,6 +182,13 @@ export function Calculator() {
       value: cardBooster,
       setter: setCardBooster,
       step: 10,
+    },
+    {
+      src: "/image/card-border.png",
+      alt: "card border",
+      value: cardBorder,
+      setter: setCardBorder,
+      itemInfo: t("card_border_info"),
     },
   ];
 
@@ -247,14 +258,14 @@ export function Calculator() {
                     className="relative flex flex-col items-center justify-center gap-4"
                     variants={itemVariants}
                   >
-                    {alt === "cache key" ? (
+                    {itemInfo ? (
                       <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                           <Button
                             variant="link"
-                            className="b-0 absolute right-3 top-10 m-0 h-4 w-4 rounded-full p-0 lg:right-7"
+                            className="b-0 absolute right-1 top-10 m-0 h-4 w-4 rounded-full p-0 lg:right-7"
                           >
-                            <LuInfo className="b-0 m-0 h-8 w-8 p-0" />
+                            <LuInfo className="b-0 m-0 h-6 w-6 p-0" />
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="min-w-32">
@@ -320,7 +331,7 @@ export function Calculator() {
                     value={priceInCash === 0 ? "" : priceInCash}
                     className="max-w-[120px] text-center"
                     onChange={(e) => setPriceInCash(Number(e.target.value))}
-                    tabIndex={7}
+                    tabIndex={Number(itemInfo.length) + 1}
                   />
                   <DropdownMenu>
                     <DropdownMenuTrigger asChild>
@@ -391,7 +402,7 @@ export function Calculator() {
                     value={priceInGold === 0 ? "" : priceInGold}
                     className="max-w-[120px] text-center"
                     onChange={(e) => setPriceInGold(Number(e.target.value))}
-                    tabIndex={7}
+                    tabIndex={Number(itemInfo.length) + 1}
                   />
                 </motion.div>
               )}
