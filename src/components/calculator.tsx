@@ -47,6 +47,7 @@ export function Calculator() {
   const [credit, setCredit] = useState(0);
   const [token, setToken] = useState(0);
   const [cacheKey, setCacheKey] = useState(0);
+  const [cardBooster, setCardBooster] = useState(0);
   const [priceInCash, setPriceInCash] = useState(0);
   const [priceInGold, setPriceInGold] = useState(0);
   const [value, setValue] = useState(0);
@@ -76,9 +77,14 @@ export function Calculator() {
     const gvarientValue = gvarient * 1200;
     const pvarientValue = pvarient * 700;
     const cacheKeyValue = cacheKey * 4000;
+    const cardBoosterValue = cardBooster * 0.125;
     const totalGold = gold + (credit / 5) * 4 + (token / 3) * 4;
     const totalValueGold =
-      gvarientValue + pvarientValue + cacheKeyValue + totalGold;
+      gvarientValue +
+      pvarientValue +
+      cacheKeyValue +
+      cardBoosterValue +
+      totalGold;
     const totalPriceGold = priceInUSD * 100;
 
     if (totalPriceGold === 0) {
@@ -112,6 +118,7 @@ export function Calculator() {
     setCredit(0);
     setToken(0);
     setCacheKey(0);
+    setCardBooster(0);
     setPriceInCash(0);
     setPriceInGold(0);
     setValue(0);
@@ -164,6 +171,13 @@ export function Calculator() {
       value: cacheKey,
       setter: setCacheKey,
       itemInfo: t("cache_key_info"),
+    },
+    {
+      src: "/image/card-booster.webp",
+      alt: "card booster",
+      value: cardBooster,
+      setter: setCardBooster,
+      step: 10,
     },
   ];
 
@@ -220,7 +234,7 @@ export function Calculator() {
           <div className="flex flex-col">
             <Separator />
             <motion.div
-              className="my-4 grid grid-cols-2 gap-5 lg:grid-cols-3 lg:gap-8"
+              className="my-4 grid grid-cols-3 gap-7"
               variants={containerVariants}
             >
               {itemInfo.map(
@@ -238,7 +252,7 @@ export function Calculator() {
                         <DropdownMenuTrigger asChild>
                           <Button
                             variant="link"
-                            className="b-0 absolute right-3 top-10 m-0 h-5 w-5 rounded-full p-0 lg:right-7"
+                            className="b-0 absolute right-3 top-10 m-0 h-4 w-4 rounded-full p-0 lg:right-7"
                           >
                             <LuInfo className="b-0 m-0 h-8 w-8 p-0" />
                           </Button>
@@ -252,7 +266,7 @@ export function Calculator() {
                     ) : (
                       ""
                     )}
-                    <Image src={src} width={60} height={60} alt={alt} />
+                    <Image src={src} width={50} height={50} alt={alt} />
                     <div className="flex gap-1">
                       <Button
                         variant="ghost"
