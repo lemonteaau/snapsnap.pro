@@ -329,7 +329,7 @@ export function Calculator() {
                             type="number"
                             placeholder={t("value_per_item")}
                             value={customValue === 0 ? "" : customValue}
-                            className="max-w-[50px] text-center text-xs lg:max-w-[60px]"
+                            className="max-w-[50px] p-1 text-center text-[12px] lg:max-w-[60px]"
                             onChange={(e) =>
                               customValueSetter &&
                               customValueSetter(
