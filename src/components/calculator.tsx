@@ -210,7 +210,7 @@ export function Calculator() {
       itemInfo: t("card_border_info"),
     },
     {
-      icon: <LuToyBrick className="h-5 w-5 lg:h-6 lg:w-6" />,
+      icon: <LuToyBrick className="h-4 w-4 lg:h-6 lg:w-6" />,
       alt: "custom item",
       value: customItemQuantity,
       setter: setCustomItemQuantity,
@@ -329,7 +329,7 @@ export function Calculator() {
                             type="number"
                             placeholder={t("value_per_item")}
                             value={customValue === 0 ? "" : customValue}
-                            className="max-w-[50px] p-1 text-center text-[12px] lg:max-w-[60px]"
+                            className="max-w-[50px] p-1 text-center text-[12px] lg:max-w-[60px] lg:text-[14px]"
                             onChange={(e) =>
                               customValueSetter &&
                               customValueSetter(
