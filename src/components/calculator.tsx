@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Check, CircleDollarSign } from "lucide-react";
-import { LuPlus, LuMinus, LuInfo } from "react-icons/lu";
+import { LuPlus, LuMinus, LuInfo, LuToyBrick } from "react-icons/lu";
 import { GrPowerReset } from "react-icons/gr";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
@@ -26,6 +26,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Result } from "@/components/result";
 import { useTranslation } from "react-i18next";
 import i18n from "@/lib/i18n";
+
+interface ItemInfo {
+  icon?: React.ReactNode;
+  src?: string;
+  alt: string;
+  value: number;
+  setter: React.Dispatch<React.SetStateAction<number>>;
+  step?: number;
+  itemInfo?: string | null;
+  isCustom?: boolean;
+  customValue?: number;
+  customValueSetter?: React.Dispatch<React.SetStateAction<number>>;
+}
 
 export function Calculator() {
   const { t } = useTranslation();
@@ -52,6 +65,8 @@ export function Calculator() {
   const [priceInCash, setPriceInCash] = useState(0);
   const [priceInGold, setPriceInGold] = useState(0);
   const [value, setValue] = useState(0);
+  const [customItemValue, setCustomItemValue] = useState(0);
+  const [customItemQuantity, setCustomItemQuantity] = useState(0);
   const [suggestion, setSuggestion] = useState("");
   const [currency, setCurrency] = useState("USD");
   const [resultShow, setResultShow] = useState(false);
@@ -81,13 +96,15 @@ export function Calculator() {
     const cardBoosterValue = cardBooster * 0.125;
     const cardBorderValue = cardBorder * 600;
     const totalGold = gold + (credit / 5) * 4 + (token / 3) * 4;
+    const customItemTotalValue = customItemValue * customItemQuantity;
     const totalValueGold =
       gvarientValue +
       pvarientValue +
       cacheKeyValue +
       cardBoosterValue +
       cardBorderValue +
-      totalGold;
+      totalGold +
+      customItemTotalValue;
     const totalPriceGold = priceInUSD * 100;
 
     if (totalPriceGold === 0) {
@@ -123,6 +140,8 @@ export function Calculator() {
     setCacheKey(0);
     setCardBooster(0);
     setCardBorder(0);
+    setCustomItemValue(0);
+    setCustomItemQuantity(0);
     setPriceInCash(0);
     setPriceInGold(0);
     setValue(0);
@@ -190,6 +209,16 @@ export function Calculator() {
       setter: setCardBorder,
       itemInfo: t("card_border_info"),
     },
+    {
+      icon: <LuToyBrick className="h-14 w-14" />,
+      alt: "custom item",
+      value: customItemQuantity,
+      setter: setCustomItemQuantity,
+      customValue: customItemValue,
+      customValueSetter: setCustomItemValue,
+      isCustom: true,
+      itemInfo: t("custom_item_description"),
+    },
   ];
 
   const containerVariants = {
@@ -245,12 +274,23 @@ export function Calculator() {
           <div className="flex flex-col">
             <Separator />
             <motion.div
-              className="my-4 grid grid-cols-3 gap-7"
+              className="my-4 grid grid-cols-3 gap-8"
               variants={containerVariants}
             >
               {itemInfo.map(
                 (
-                  { src, alt, value, setter, step = 1, itemInfo = null },
+                  {
+                    icon,
+                    src,
+                    alt,
+                    value,
+                    setter,
+                    step = 1,
+                    itemInfo = null,
+                    isCustom = false,
+                    customValue,
+                    customValueSetter,
+                  }: ItemInfo,
                   index,
                 ) => (
                   <motion.div
@@ -268,8 +308,8 @@ export function Calculator() {
                             <LuInfo className="b-0 m-0 h-6 w-6 p-0" />
                           </Button>
                         </DropdownMenuTrigger>
-                        <DropdownMenuContent className="min-w-32">
-                          <div className="text-nowrap p-2 text-sm">
+                        <DropdownMenuContent className="min-w-32 max-w-80 lg:max-w-96">
+                          <div className="whitespace-break-spaces p-2 text-sm">
                             {itemInfo}
                           </div>
                         </DropdownMenuContent>
@@ -277,7 +317,32 @@ export function Calculator() {
                     ) : (
                       ""
                     )}
-                    <Image src={src} width={50} height={50} alt={alt} />
+                    <div className="flex h-[50px] w-[50px] items-center justify-center">
+                      {isCustom ? (
+                        <div className="flex items-center gap-2">
+                          {icon}
+                          <Input
+                            type="number"
+                            placeholder={t("value_per_item")}
+                            value={customValue === 0 ? "" : customValue}
+                            className="max-w-[80px] text-center text-xs"
+                            onChange={(e) =>
+                              customValueSetter &&
+                              customValueSetter(
+                                Math.max(Number(e.target.value), 0),
+                              )
+                            }
+                          />
+                        </div>
+                      ) : (
+                        <Image
+                          src={src || ""}
+                          width={50}
+                          height={50}
+                          alt={alt}
+                        />
+                      )}
+                    </div>
                     <div className="flex gap-1">
                       <Button
                         variant="ghost"
