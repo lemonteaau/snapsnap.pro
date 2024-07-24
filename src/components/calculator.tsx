@@ -321,7 +321,7 @@ export function Calculator() {
                     ) : (
                       ""
                     )}
-                    <div className="h-[50px]items-center flex justify-center">
+                    <div className="flex h-[50px] items-center justify-center">
                       {isCustom ? (
                         <div className="flex items-center gap-2">
                           {icon}
