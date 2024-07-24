@@ -210,7 +210,7 @@ export function Calculator() {
       itemInfo: t("card_border_info"),
     },
     {
-      icon: <LuToyBrick className="h-14 w-14" />,
+      icon: <LuToyBrick className="h-5 w-5 lg:h-6 lg:w-6" />,
       alt: "custom item",
       value: customItemQuantity,
       setter: setCustomItemQuantity,
@@ -303,7 +303,11 @@ export function Calculator() {
                         <DropdownMenuTrigger asChild>
                           <Button
                             variant="link"
-                            className="b-0 absolute right-1 top-10 m-0 h-4 w-4 rounded-full p-0 lg:right-7"
+                            className={`b-0 absolute m-0 h-4 w-4 rounded-full p-0 ${
+                              isCustom
+                                ? "-right-2 top-10 lg:right-7"
+                                : "right-1 top-10 lg:right-7"
+                            }`}
                           >
                             <LuInfo className="b-0 m-0 h-6 w-6 p-0" />
                           </Button>
@@ -317,7 +321,7 @@ export function Calculator() {
                     ) : (
                       ""
                     )}
-                    <div className="flex h-[50px] w-[50px] items-center justify-center">
+                    <div className="h-[50px]items-center flex justify-center">
                       {isCustom ? (
                         <div className="flex items-center gap-2">
                           {icon}
@@ -325,7 +329,7 @@ export function Calculator() {
                             type="number"
                             placeholder={t("value_per_item")}
                             value={customValue === 0 ? "" : customValue}
-                            className="max-w-[80px] text-center text-xs"
+                            className="max-w-[50px] text-center text-xs lg:max-w-[60px]"
                             onChange={(e) =>
                               customValueSetter &&
                               customValueSetter(
