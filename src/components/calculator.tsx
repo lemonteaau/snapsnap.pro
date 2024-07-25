@@ -131,6 +131,20 @@ export function Calculator() {
     setResultShow(true);
   };
 
+  const hasInputValues = () =>
+    gvarient ||
+    pvarient ||
+    gold ||
+    credit ||
+    token ||
+    cacheKey ||
+    cardBooster ||
+    cardBorder ||
+    customItemValue ||
+    customItemQuantity ||
+    priceInCash ||
+    priceInGold;
+
   const resetValues = () => {
     setGVarient(0);
     setPVarient(0);
@@ -253,7 +267,6 @@ export function Calculator() {
                 value="cash_mode"
                 onClick={() => {
                   setMode("cash_mode");
-                  resetValues();
                 }}
               >
                 {t("cash_mode")}
@@ -262,7 +275,6 @@ export function Calculator() {
                 value="gold_mode"
                 onClick={() => {
                   setMode("gold_mode");
-                  resetValues();
                 }}
               >
                 {t("gold_mode")}
@@ -499,9 +511,9 @@ export function Calculator() {
           </Button>
           <Button
             className="w-full"
-            variant={!priceInCash && !priceInGold ? "secondary" : "destructive"}
+            variant={hasInputValues() ? "destructive" : "secondary"}
             onClick={resetValues}
-            disabled={!priceInCash && !priceInGold}
+            disabled={!hasInputValues()}
           >
             <GrPowerReset className="mr-2 h-4 w-4" />
             {t("reset")}
