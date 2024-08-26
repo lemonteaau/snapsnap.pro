@@ -13,7 +13,7 @@ SnapSnap.Pro是一款用来计算Marvel Snap礼包价值的Web应用。
 
 ## 使用方法
 
-1. 打开 [https://snap-calculator.vercel.app/](https://snap-calculator.vercel.app/).
+1. 打开 [https://www.snapsnap.pro/](https://www.snapsnap.pro/).
 2. 输入礼包详情（如变体数量等）
 3. 输入礼包价格（目前仅支持美元）
 4. 点击 "Value it!" 进行计算
@@ -26,8 +26,8 @@ SnapSnap.Pro是一款用来计算Marvel Snap礼包价值的Web应用。
 1. Clone仓库:
 
    ```bash
-   git clone https://github.com/lemonteaau/snap-bundle-calculator.git
-   cd snap-bundle-calculator
+   git clone https://github.com/lemonteaau/snapsnap.pro.git
+   cd snapsnap.pro
    ```
 
 2. 安装依赖:
@@ -62,4 +62,4 @@ SnapSnap.Pro是一款用来计算Marvel Snap礼包价值的Web应用。
 
 ## 许可证
 
-此项目采用[MIT License](https://github.com/lemonteaau/snap-bundle-calculator/blob/main/LICENSE).
+此项目采用[MIT License](https://github.com/lemonteaau/snapsnap.pro/blob/main/LICENSE).
