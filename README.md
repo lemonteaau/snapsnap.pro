@@ -25,10 +25,8 @@ Thanks for i18n support from [AnZai](https://github.com/CN-huangwenhua).
 - Calculate the value percentage based on the entered price and provide purchase recommendations.
 - Support for dark mode toggle.
 
-## TODO List
-- Calculation for bundles purchased with gold
 
-## Installation (Locally)
+## Installation (locally)
 
 1. Clone the repository:
 
