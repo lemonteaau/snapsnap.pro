@@ -31,8 +31,8 @@ Thanks for i18n support from [AnZai](https://github.com/CN-huangwenhua).
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/lemonteaau/snap-bundle-calculator.git
-   cd snap-bundle-calculator
+   git clone https://github.com/lemonteaau/snapsnap.pro.git
+   cd snapsnap.pro
    ```
 
 2. Install dependencies:
