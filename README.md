@@ -67,4 +67,4 @@ Feel free to open issues and submit pull requests to improve this project.
 
 ## License
 
-This project is licensed under the [MIT License](https://github.com/lemonteaau/snap-bundle-calculator/blob/main/LICENSE).
+This project is licensed under the [MIT License](https://github.com/lemonteaau/snapsnap.pro/blob/main/LICENSE).
