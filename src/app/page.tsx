@@ -6,12 +6,15 @@ import { Settings } from "@/components/settings";
 import { Calculator } from "@/components/calculator";
 import Image from "next/image";
 import { useTranslation } from "react-i18next";
+import Banner from "@/components/banner";
+import i18n from "@/lib/i18n";
 
 export default function Home() {
   const { t } = useTranslation();
 
   return (
     <div className="flex min-h-screen flex-col">
+      {i18n.language === "zh-CN" && <Banner />}
       <main className="flex flex-grow flex-col items-center gap-4">
         <Header t={t} />
         <Calculator />
