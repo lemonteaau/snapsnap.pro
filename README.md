@@ -14,7 +14,7 @@ Thanks for i18n support from [AnZai](https://github.com/CN-huangwenhua).
 
 ## Usage
 
-1. Open the web app at [https://www.snapsnap.pro](https://www.snapsnap.pro).
+1. Open the web app at https://snap-calculator.vercel.app/.
 2. Enter detail of the bundle.
 3. Enter the price.
 4. Click the "Value it!" button to see the calculated value and purchase recommendation.
